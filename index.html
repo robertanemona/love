@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert & Anemona | Povestea Noastră</title>
+    <!-- Fonturi -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --baby-pink: #F4C2C2;
+            --deep-pink: #d18e8e;
+            --text-color: #554444;
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe9e9 100%);
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+        }
+
+        /* --- FUNDAL ANIMAT (Bule care se ridică) --- */
+        .background-shapes li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: var(--baby-pink);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .background-shapes li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .background-shapes li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .background-shapes li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .background-shapes li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .background-shapes li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .background-shapes li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.4; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .main-card {
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(244, 194, 194, 0.5);
+            border: 3px solid var(--baby-pink);
+            margin: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--baby-pink);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .zodiac-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .zodiac-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* PHOTO PLACEHOLDER */
+        .couple-photo-wrapper {
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 30px;
+        }
+
+        .couple-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border: 5px solid white;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            color: var(--baby-pink);
+            font-size: 3rem;
+            overflow: hidden;
+        }
+        
+        .couple-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CONTENT */
+        .content {
+            padding: 0 25px 40px 25px;
+        }
+
+        /* CRONOMETRE */
+        .timers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .timer-box {
+            background: #fff;
+            border: 2px solid var(--baby-pink);
+            border-radius: 15px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .timer-box:hover { transform: translateY(-5px); }
+
+        .timer-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--deep-pink);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .timer-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* TIMELINE */
+        .timeline-container {
+            border-left: 2px solid var(--baby-pink);
+            margin-left: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--baby-pink);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 1px var(--baby-pink);
+        }
+
+        .t-date { color: var(--deep-pink); font-weight: bold; font-size: 0.9rem; }
+        .t-desc { font-size: 0.95rem; margin-top: 2px; }
+
+        /* GALERIE FOTO */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .gallery-item {
+            aspect-ratio: 1/1;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-item.placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            background: #fafafa;
+            font-size: 1.5rem;
+        }
+
+        /* NOTE */
+        .notes-section {
+            background: #fff0f0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px dashed var(--baby-pink);
+        }
+        
+        .notes-section h3 { margin-top: 0; color: var(--deep-pink); text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; }
+        .notes-list { list-style: none; padding: 0; }
+        .notes-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .notes-list li i { color: var(--baby-pink); }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .timers-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Bule animate de fundal -->
+    <ul class="background-shapes">
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+
+    <div class="main-card">
+        <div class="header">
+            <h1>Robert & Anemona</h1>
+            <div class="zodiac-info">
+                <!-- Datele de naștere și zodiile -->
+                <div class="zodiac-badge">
+                    <i class="fas fa-mars"></i> Robert (21) • 31 Aug 2004 <i class="fas fa-star" style="font-size:0.7em"></i> Fecioară
+                </div>
+                <div class="zodiac-badge">
+                    <i class="fas fa-venus"></i> Anemona (17) • 17 Ian 2008 <i class="fas fa-star" style="font-size:0.7em"></i> Capricorn
+                </div>
+            </div>
+        </div>
+
+        <div class="couple-photo-wrapper">
+            <!-- Poți pune o poză aici -->
+            <div class="couple-photo">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+
+        <div class="content">
+            
+            <!-- Cronometre -->
+            <div class="timers-grid">
+                <div class="timer-box">
+                    <span class="timer-label">De la început (18 Feb, 19:23)</span>
+                    <div id="timer-talk" class="timer-value">...</div>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-label">Fără tine din (15 Dec, 14:30)</span>
+                    <div id="timer-apart" class="timer-value">...</div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="t-date">18 Februarie 2025, ora 19:23</div>
+                    <div class="t-desc">Primul mesaj. Momentul în care am știut că ești specială.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="t-date">12 Martie 2025</div>
+                    <div class="t-desc">Ziua în care "eu și tu" am devenit "noi".</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="t-date">15 Decembrie 2025, ora 14:30</div>
+                    <div class="t-desc">Un capitol încheiat, dar niciodată uitat.</div>
+                </div>
+            </div>
+
+            <!-- Galerie Foto -->
+            <div class="gallery-grid">
+                <div class="gallery-item placeholder"><i class="fas fa-image"></i></div>
+                <div class="gallery-item placeholder"><i class="fas fa-image"></i></div>
+                <div class="gallery-item placeholder"><i class="fas fa-image"></i></div>
+            </div>
+
+            <!-- Notițe de iubire -->
+            <div class="notes-section">
+                <h3>Lucruri care îmi lipsesc</h3>
+                <ul class="notes-list">
+                    <li><i class="fas fa-heart"></i> Felul în care îmi zâmbeai.</li>
+                    <li><i class="fas fa-heart"></i> Discuțiile noastre târzii.</li>
+                    <li><i class="fas fa-heart"></i> Culoarea Baby Pink care îmi amintește de tine.</li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                Creat cu dragoste, de Robert. <br> Sărbători fericite, Anemona.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DATELE SETATE PE ANUL 2025 (cu orele specifice)
+        
+        // 18 Februarie 2025, ora 19:23
+        const talkDate = new Date("February 18, 2025 19:23:00").getTime();
+        
+        // 15 Decembrie 2025, ora 14:30
+        const breakDate = new Date("December 15, 2025 14:30:00").getTime();
+
+        function updateTimers() {
+            const now = new Date().getTime();
+
+            // Calcul 1: De când vorbiți
+            const diffTalk = now - talkDate;
+            if (diffTalk >= 0) {
+                document.getElementById("timer-talk").innerHTML = formatTime(diffTalk);
+            } else {
+                document.getElementById("timer-talk").innerHTML = "Așteptând data (2025)...";
+            }
+
+            // Calcul 2: De la despărțire
+            const diffApart = now - breakDate;
+            if (diffApart >= 0) {
+                document.getElementById("timer-apart").innerHTML = formatTime(diffApart);
+            } else {
+                document.getElementById("timer-apart").innerHTML = "Așteptând data (2025)...";
+            }
+        }
+
+        function formatTime(ms) {
+            const seconds = Math.floor((ms / 1000) % 60);
+            const minutes = Math.floor((ms / (1000 * 60)) % 60);
+            const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+            
+            return `${days}z ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateTimers, 1000);
+        updateTimers();
+    </script>
+</body>
+</html>
