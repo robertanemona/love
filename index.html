@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robert & Anemona | Love Story</title>
     
-    <!-- Fonturi Jucăușe și Romantice -->
+    <!-- Fonturi Jucăușe -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -25,18 +25,13 @@
             color: var(--text);
             min-height: 100vh;
             
-            /* FUNDAL ROMANTIC: Gradient Animat */
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffd1ff, #fecfef);
-            background-size: 400% 400%;
-            animation: romanticFlow 15s ease infinite;
-            
+            /* FUNDAL: BULINE ROZ (Polka Dots) */
+            background-color: #fff0f5; 
+            background-image: radial-gradient(#ffb7b2 20%, transparent 20%),
+                              radial-gradient(#ffb7b2 20%, transparent 20%);
+            background-position: 0 0, 15px 15px;
+            background-size: 30px 30px;
             overflow-x: hidden;
-        }
-
-        @keyframes romanticFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* --- MESAJE PLUTITOARE --- */
@@ -54,34 +49,36 @@
         .float-msg {
             position: absolute;
             font-family: 'Pacifico', cursive;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            opacity: 0.6;
-            font-size: 1.5rem;
-            animation: floatAround 18s infinite ease-in-out alternate;
+            color: var(--hot-pink);
+            background: rgba(255,255,255,0.8);
+            padding: 2px 10px;
+            border-radius: 10px;
+            opacity: 0.8;
+            font-size: 1.2rem;
+            animation: floatAround 25s infinite ease-in-out alternate;
             white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         
-        .msg1 { top: 12%; left: 8%; font-size: 2rem; transform: rotate(-5deg); }
-        .msg2 { top: 25%; right: 8%; font-size: 1.8rem; transform: rotate(5deg); }
-        .msg3 { bottom: 15%; left: 12%; font-size: 2.2rem; transform: rotate(-3deg); }
-        .msg4 { bottom: 35%; right: 5%; font-size: 1.5rem; transform: rotate(8deg); }
+        .msg1 { top: 12%; left: 5%; transform: rotate(-5deg); }
+        .msg2 { top: 25%; right: 5%; transform: rotate(5deg); }
+        .msg3 { bottom: 20%; left: 8%; transform: rotate(-3deg); }
+        .msg4 { bottom: 40%; right: 2%; transform: rotate(8deg); }
         
         @keyframes floatAround {
             0% { transform: translate(0, 0) rotate(-5deg); }
-            100% { transform: translate(30px, 40px) rotate(5deg); }
+            100% { transform: translate(20px, 30px) rotate(5deg); }
         }
 
         /* --- CONTAINER PRINCIPAL --- */
         .card-container {
             max-width: 650px;
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 4px solid #fff;
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 4px solid var(--baby-pink);
             border-radius: 40px;
-            box-shadow: 0 15px 40px rgba(214, 93, 177, 0.2);
-            padding: 40px 20px;
+            box-shadow: 10px 10px 0px rgba(255, 182, 193, 0.8);
+            padding: 50px 20px 40px;
             text-align: center;
             position: relative;
         }
@@ -89,63 +86,93 @@
         /* HEADER */
         .kitty-header {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .kitty-img {
-            width: 100px;
+            width: 110px;
             height: auto;
             position: absolute;
-            top: -80px;
-            right: 10px;
+            top: -100px;
+            right: -10px;
             z-index: 2;
             animation: wave 3s infinite ease-in-out;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+            filter: drop-shadow(2px 2px 0px #fff);
         }
         @keyframes wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(10deg); } }
 
+        /* NUME STILIZATE */
+        .title-wrapper {
+            background: #fff;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 3px solid var(--hot-pink);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            transform: rotate(-2deg);
+            margin-bottom: 15px;
+        }
+
         h1 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 3.5rem;
-            color: var(--hot-pink);
+            font-size: 2.5rem;
             margin: 0;
-            text-shadow: 2px 2px 0px #fff;
+            background: linear-gradient(45deg, #ff6b81, #ff9eb5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+            line-height: 1.2;
         }
 
+        .heart-beat {
+            display: inline-block;
+            color: red;
+            -webkit-text-fill-color: red;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* SUBTITLU */
         .main-subtitle {
             font-family: 'Pacifico', cursive;
-            font-size: 1.8rem;
-            color: var(--deep-rose);
-            margin-top: 5px;
+            font-size: 1.4rem;
+            color: #fff;
+            background-color: var(--hot-pink);
+            padding: 8px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(255, 143, 163, 0.4);
+            margin-top: 10px;
             display: inline-block;
             position: relative;
-        }
-        .main-subtitle::before, .main-subtitle::after {
-            content: '✨';
-            font-size: 1rem;
-            position: relative;
-            top: -5px;
+            letter-spacing: 1px;
         }
 
-        /* ZODII */
+        /* ZODII & NUME */
         .zodiac-box {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-top: 25px;
+            flex-wrap: wrap;
         }
         .z-pill {
             background: white;
             border: 2px solid var(--baby-pink);
-            padding: 6px 18px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.9rem;
-            color: #666;
+            color: #555;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* POZA */
+        /* POZA - FIXED */
         .photo-wrapper {
             margin: 30px auto;
             width: 160px;
@@ -153,7 +180,7 @@
             background: white;
             padding: 8px;
             border-radius: 50%;
-            border: 3px solid var(--hot-pink);
+            border: 3px dashed var(--hot-pink);
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
@@ -167,10 +194,15 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            font-size: 3rem;
-            color: var(--hot-pink);
+            /* Aici nu mai avem iconita, doar imaginea */
         }
-        .photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .photo-inner img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Aceasta linie face ca poza sa umple tot cercul corect */
+            display: block;
+        }
 
         .bow-decoration {
             position: absolute;
@@ -193,12 +225,12 @@
             background: #fff;
             border-radius: 20px;
             padding: 20px 10px;
-            border: 1px solid var(--baby-pink);
+            border: 2px solid var(--baby-pink);
             position: relative;
-            box-shadow: 0 5px 15px rgba(244,194,194,0.3);
+            box-shadow: 0 5px 0px rgba(244,194,194,0.5);
             transition: transform 0.3s;
         }
-        .cute-timer:hover { transform: translateY(-5px); }
+        .cute-timer:hover { transform: translateY(-3px); }
 
         .t-head { font-size: 0.85rem; font-weight: bold; color: var(--deep-rose); text-transform: uppercase; letter-spacing: 1px; }
         .t-body { font-size: 1.1rem; font-weight: 700; color: #555; margin-top: 8px; }
@@ -207,7 +239,7 @@
         .timeline {
             text-align: left;
             margin: 40px 10px;
-            border-left: 3px dotted var(--hot-pink);
+            border-left: 3px dashed var(--hot-pink);
             padding-left: 25px;
         }
         
@@ -243,8 +275,8 @@
             background: white;
             padding: 15px;
             border-radius: 15px;
-            border-bottom: 3px solid var(--baby-pink);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--baby-pink);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.05);
             font-size: 0.95rem;
             line-height: 1.5;
         }
@@ -258,13 +290,14 @@
         }
         
         .l-box {
-            background: rgba(255,255,255,0.6);
+            background: #fff;
             padding: 15px;
             border-radius: 15px;
-            border: 1px solid #fff;
+            border: 1px solid var(--baby-pink);
             transition: 0.3s;
+            box-shadow: 2px 2px 0px #eee;
         }
-        .l-box:hover { background: #fff; transform: scale(1.05); box-shadow: 0 5px 15px rgba(244,194,194,0.3); }
+        .l-box:hover { transform: scale(1.05); border-color: var(--hot-pink); }
         .l-emoji { font-size: 2rem; display: block; margin-bottom: 5px; }
         .l-title { font-weight: bold; color: var(--deep-rose); margin-bottom: 2px; }
         .l-sub { font-size: 0.8rem; color: #777; font-style: italic; }
@@ -277,7 +310,7 @@
         }
 
         @media(max-width: 500px) {
-            h1 { font-size: 2.8rem; }
+            h1 { font-size: 1.8rem; }
             .timers-area { grid-template-columns: 1fr; }
         }
     </style>
@@ -298,24 +331,33 @@
             <!-- Hello Kitty Sticker -->
             <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png" class="kitty-img" alt="Hello Kitty"> 
             
-            <h1>Robert & Anemona</h1>
-            <div class="main-subtitle">O iubire de neuitat</div>
+            <!-- TITLU -->
+            <div class="title-wrapper">
+                <h1>
+                    Robert <span class="heart-beat">❤</span> Anemona
+                </h1>
+            </div>
+            
+            <!-- SUBTITLU -->
+            <div class="main-subtitle">O poveste nescrisă ✨</div>
         </div>
 
         <div class="zodiac-box">
-            <div class="z-pill">🐻 Eu: 31 Aug (Fecioară)</div>
-            <div class="z-pill">🐱 Tu: 17 Ian (Capricorn)</div>
+            <div class="z-pill"><i class="fas fa-mars" style="color:#7fb3d5"></i> Robert (21) • 2004 ♍</div>
+            <div class="z-pill"><i class="fas fa-venus" style="color:#e5989b"></i> Anemona (17) • 2008 ♑</div>
         </div>
 
         <div class="photo-wrapper">
             <div class="bow-decoration">🎀</div>
+            
+            <!-- AICI AM MODIFICAT - DOAR POZA, FARA INIMA -->
             <div class="photo-inner">
-                <!-- AICI PUI POZA VOASTRĂ: <img src="poza.jpg"> -->
-                <i class="fa-solid fa-heart"></i>
+                <!-- STERGE linia de mai jos și pune link-ul tau in src="..." -->
+                <img src="https://via.placeholder.com/160" alt="Noi doi">
             </div>
         </div>
 
-        <!-- Timers MODIFICATE AICI -->
+        <!-- Timers -->
         <div class="timers-area">
             <div class="cute-timer">
                 <div class="t-head">Povestea a început acum 🌸</div>
