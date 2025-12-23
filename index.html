@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert & Anemona | Hello Love</title>
+    <title>Robert & Anemona | Love Story</title>
     
-    <!-- Fonturi Jucăușe și Drăguțe -->
+    <!-- Fonturi Jucăușe și Romantice -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -13,9 +13,9 @@
         :root {
             --baby-pink: #F4C2C2;
             --hot-pink: #ff8fa3;
+            --deep-rose: #d65db1;
             --white: #ffffff;
             --text: #6b4c4c;
-            --grid-color: rgba(255, 182, 193, 0.4);
         }
 
         body {
@@ -23,17 +23,23 @@
             padding: 0;
             font-family: 'Quicksand', sans-serif;
             color: var(--text);
-            /* Fundal stil "caiet" drăguț */
-            background-color: #fff9fa;
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-            overflow-x: hidden;
             min-height: 100vh;
+            
+            /* FUNDAL ROMANTIC: Gradient Animat */
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffd1ff, #fecfef);
+            background-size: 400% 400%;
+            animation: romanticFlow 15s ease infinite;
+            
+            overflow-x: hidden;
         }
 
-        /* --- MESAJE PLUTITOARE PE FUNDAL --- */
+        @keyframes romanticFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- MESAJE PLUTITOARE --- */
         .floating-background {
             position: fixed;
             top: 0;
@@ -48,53 +54,39 @@
         .float-msg {
             position: absolute;
             font-family: 'Pacifico', cursive;
-            color: var(--hot-pink);
-            opacity: 0.25; /* Transparente să nu deranjeze */
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            opacity: 0.6;
             font-size: 1.5rem;
-            animation: floatAround 15s infinite ease-in-out alternate;
+            animation: floatAround 18s infinite ease-in-out alternate;
             white-space: nowrap;
         }
         
-        .sticker {
-            position: absolute;
-            font-size: 2.5rem;
-            opacity: 0.4;
-            animation: bounce 3s infinite ease-in-out;
-        }
-
-        /* Poziționarea mesajelor */
-        .msg1 { top: 10%; left: 5%; font-size: 2rem; transform: rotate(-10deg); }
-        .msg2 { top: 20%; right: 5%; font-size: 1.8rem; transform: rotate(10deg); }
-        .msg3 { bottom: 15%; left: 10%; font-size: 2.2rem; transform: rotate(-5deg); }
-        .msg4 { bottom: 30%; right: 10%; font-size: 1.5rem; transform: rotate(5deg); }
-        .msg5 { top: 50%; left: -5%; font-size: 3rem; opacity: 0.15; }
+        .msg1 { top: 12%; left: 8%; font-size: 2rem; transform: rotate(-5deg); }
+        .msg2 { top: 25%; right: 8%; font-size: 1.8rem; transform: rotate(5deg); }
+        .msg3 { bottom: 15%; left: 12%; font-size: 2.2rem; transform: rotate(-3deg); }
+        .msg4 { bottom: 35%; right: 5%; font-size: 1.5rem; transform: rotate(8deg); }
         
-        .stk1 { top: 15%; left: 40%; animation-delay: 0s; } /* Fundita */
-        .stk2 { bottom: 10%; right: 40%; animation-delay: 1.5s; } /* Inimioara */
-
         @keyframes floatAround {
             0% { transform: translate(0, 0) rotate(-5deg); }
-            100% { transform: translate(20px, 40px) rotate(5deg); }
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            100% { transform: translate(30px, 40px) rotate(5deg); }
         }
 
         /* --- CONTAINER PRINCIPAL --- */
         .card-container {
             max-width: 650px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.95);
-            border: 4px solid var(--baby-pink);
-            border-radius: 35px;
-            box-shadow: 10px 10px 0px var(--hot-pink); /* Efect umbra solida */
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 4px solid #fff;
+            border-radius: 40px;
+            box-shadow: 0 15px 40px rgba(214, 93, 177, 0.2);
             padding: 40px 20px;
             text-align: center;
             position: relative;
         }
 
-        /* HEADER CU HELLO KITTY */
+        /* HEADER */
         .kitty-header {
             position: relative;
             margin-bottom: 30px;
@@ -104,11 +96,11 @@
             width: 100px;
             height: auto;
             position: absolute;
-            top: -70px;
-            right: 0px;
+            top: -80px;
+            right: 10px;
             z-index: 2;
-            /* Animație să se legene */
             animation: wave 3s infinite ease-in-out;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
         }
         @keyframes wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(10deg); } }
 
@@ -117,19 +109,22 @@
             font-size: 3.5rem;
             color: var(--hot-pink);
             margin: 0;
-            text-shadow: 3px 3px 0px #fff, 5px 5px 0px rgba(0,0,0,0.05);
+            text-shadow: 2px 2px 0px #fff;
         }
 
         .main-subtitle {
             font-family: 'Pacifico', cursive;
             font-size: 1.8rem;
-            color: #d17b8f;
+            color: var(--deep-rose);
             margin-top: 5px;
-            background: #fff0f5;
             display: inline-block;
-            padding: 5px 20px;
-            border-radius: 20px;
-            border: 2px dashed var(--hot-pink);
+            position: relative;
+        }
+        .main-subtitle::before, .main-subtitle::after {
+            content: '✨';
+            font-size: 1rem;
+            position: relative;
+            top: -5px;
         }
 
         /* ZODII */
@@ -137,20 +132,20 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         .z-pill {
             background: white;
             border: 2px solid var(--baby-pink);
-            padding: 5px 15px;
-            border-radius: 15px;
+            padding: 6px 18px;
+            border-radius: 20px;
             font-weight: bold;
             font-size: 0.9rem;
-            color: #555;
-            box-shadow: 3px 3px 0px rgba(244,194,194,0.5);
+            color: #666;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        /* POZA CENTRALĂ */
+        /* POZA */
         .photo-wrapper {
             margin: 30px auto;
             width: 160px;
@@ -158,34 +153,35 @@
             background: white;
             padding: 8px;
             border-radius: 50%;
-            border: 3px dashed var(--hot-pink);
+            border: 3px solid var(--hot-pink);
             position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .photo-inner {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: var(--baby-pink);
+            background: #fff0f5;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             font-size: 3rem;
-            color: white;
+            color: var(--hot-pink);
         }
         .photo-inner img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Fundiță decorativă pe poză */
         .bow-decoration {
             position: absolute;
-            top: -15px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5rem;
+            font-size: 3rem;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
         }
 
-        /* CRONOMETRE DRĂGUȚE */
+        /* CRONOMETRE */
         .timers-area {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -196,60 +192,61 @@
         .cute-timer {
             background: #fff;
             border-radius: 20px;
-            padding: 15px;
-            border: 2px solid var(--baby-pink);
+            padding: 20px 10px;
+            border: 1px solid var(--baby-pink);
             position: relative;
+            box-shadow: 0 5px 15px rgba(244,194,194,0.3);
+            transition: transform 0.3s;
         }
-        .cute-timer::after {
-            content: '♥';
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            background: white;
-            color: var(--hot-pink);
-            font-size: 1.2rem;
-            padding: 0 5px;
-        }
-        
-        .t-head { font-size: 0.8rem; font-weight: bold; color: var(--hot-pink); text-transform: uppercase; }
-        .t-body { font-size: 1rem; font-weight: 700; color: #555; margin-top: 5px; }
+        .cute-timer:hover { transform: translateY(-5px); }
 
-        /* TIMELINE CU FUNDIȚE */
+        .t-head { font-size: 0.85rem; font-weight: bold; color: var(--deep-rose); text-transform: uppercase; letter-spacing: 1px; }
+        .t-body { font-size: 1.1rem; font-weight: 700; color: #555; margin-top: 8px; }
+
+        /* TIMELINE */
         .timeline {
             text-align: left;
-            margin: 30px 10px;
-            border-left: 3px solid var(--baby-pink);
+            margin: 40px 10px;
+            border-left: 3px dotted var(--hot-pink);
             padding-left: 25px;
         }
         
-        .t-item { position: relative; margin-bottom: 30px; }
+        .t-item { position: relative; margin-bottom: 35px; }
+        
         .t-icon {
             position: absolute;
-            left: -43px;
+            left: -42px;
             top: 0;
-            font-size: 1.5rem;
-            background: #fff9fa; /* Același cu fundalul paginii */
-            padding: 5px 0;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 2px solid var(--hot-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
         
         .t-date {
             background: var(--hot-pink);
             color: white;
-            padding: 3px 10px;
-            border-radius: 10px;
+            padding: 4px 12px;
+            border-radius: 12px;
             font-size: 0.85rem;
             font-weight: bold;
             display: inline-block;
+            margin-bottom: 5px;
         }
         
         .t-msg {
             background: white;
-            padding: 12px;
+            padding: 15px;
             border-radius: 15px;
-            margin-top: 8px;
-            border: 1px solid var(--baby-pink);
-            box-shadow: 3px 3px 0px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--baby-pink);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.03);
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* LOVE GRID */
@@ -261,45 +258,38 @@
         }
         
         .l-box {
-            background: linear-gradient(to bottom right, #fff, #fff0f5);
+            background: rgba(255,255,255,0.6);
             padding: 15px;
             border-radius: 15px;
-            border: 1px solid var(--baby-pink);
+            border: 1px solid #fff;
             transition: 0.3s;
         }
-        .l-box:hover { transform: scale(1.05); }
+        .l-box:hover { background: #fff; transform: scale(1.05); box-shadow: 0 5px 15px rgba(244,194,194,0.3); }
         .l-emoji { font-size: 2rem; display: block; margin-bottom: 5px; }
-        .l-title { font-weight: bold; color: var(--text); }
-        .l-sub { font-size: 0.8rem; color: #888; font-style: italic; }
+        .l-title { font-weight: bold; color: var(--deep-rose); margin-bottom: 2px; }
+        .l-sub { font-size: 0.8rem; color: #777; font-style: italic; }
 
         /* FOOTER */
         .footer {
             margin-top: 40px;
             font-size: 0.9rem;
-            color: #aaa;
+            color: #888;
         }
 
-        /* Responsive */
         @media(max-width: 500px) {
             h1 { font-size: 2.8rem; }
             .timers-area { grid-template-columns: 1fr; }
-            .kitty-img { width: 70px; top: -50px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MESAJE PE FUNDAL (Floating) -->
+    <!-- MESAJE PE FUNDAL -->
     <div class="floating-background">
-        <div class="float-msg msg1">Te iubesc cel mai mult! 💕</div>
-        <div class="float-msg msg2">Robert & Anemona 4ever</div>
+        <div class="float-msg msg1">Te iubesc! 💕</div>
+        <div class="float-msg msg2">Robert & Anemona</div>
         <div class="float-msg msg3">Tu ești totul 🌸</div>
-        <div class="float-msg msg4">My Hello Kitty 🎀</div>
-        <div class="float-msg msg5">LOVE LOVE LOVE</div>
-        
-        <!-- Stickere decorative -->
-        <div class="sticker stk1">🎀</div>
-        <div class="sticker stk2">💖</div>
+        <div class="float-msg msg4">Forever Us 🎀</div>
     </div>
 
     <div class="card-container">
@@ -309,7 +299,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png" class="kitty-img" alt="Hello Kitty"> 
             
             <h1>Robert & Anemona</h1>
-            <div class="main-subtitle">✨ O iubire de neuitat ✨</div>
+            <div class="main-subtitle">O iubire de neuitat</div>
         </div>
 
         <div class="zodiac-box">
@@ -325,15 +315,15 @@
             </div>
         </div>
 
-        <!-- Timers -->
+        <!-- Timers MODIFICATE AICI -->
         <div class="timers-area">
             <div class="cute-timer">
-                <div class="t-head">De la început 🌸</div>
+                <div class="t-head">Povestea a început acum 🌸</div>
                 <div style="font-size:0.7rem; color:#aaa;">(18 Feb 2025)</div>
                 <div id="timer-talk" class="t-body">...</div>
             </div>
             <div class="cute-timer">
-                <div class="t-head">Ne vedem curând 🩹</div>
+                <div class="t-head">Fără tine de 🩹</div>
                 <div style="font-size:0.7rem; color:#aaa;">(15 Dec 2025)</div>
                 <div id="timer-apart" class="t-body">...</div>
             </div>
@@ -378,13 +368,13 @@
             </div>
             <div class="l-box">
                 <span class="l-emoji">🤞</span>
-                <div class="l-title">Promisiune</div>
-                <div class="l-sub">Te aștept oricât</div>
+                <div class="l-title">Viitorul</div>
+                <div class="l-sub">Noi Doi Împreună</div>
             </div>
             <div class="l-box">
                 <span class="l-emoji">🐱</span>
                 <div class="l-title">Hello Kitty</div>
-                <div class="l-sub">Vibe-ul tău</div>
+                <div class="l-sub">Lumea ta</div>
             </div>
         </div>
 
