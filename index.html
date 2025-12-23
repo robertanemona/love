@@ -73,7 +73,8 @@
         /* --- CONTAINER PRINCIPAL --- */
         .card-container {
             max-width: 650px;
-            margin: 60px auto;
+            /* Pe PC marginile sunt standard */
+            margin: 80px auto; 
             background: rgba(255, 255, 255, 0.95);
             border: 4px solid var(--baby-pink);
             border-radius: 40px;
@@ -93,8 +94,9 @@
             width: 110px;
             height: auto;
             position: absolute;
-            top: -100px;
-            right: -10px;
+            /* Poziționare pentru PC */
+            top: -110px;
+            right: -20px;
             z-index: 2;
             animation: wave 3s infinite ease-in-out;
             filter: drop-shadow(2px 2px 0px #fff);
@@ -111,11 +113,13 @@
             box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
             transform: rotate(-2deg);
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1; /* Asigură că textul e peste elemente decorative */
         }
 
         h1 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin: 0;
             background: linear-gradient(45deg, #ff6b81, #ff9eb5);
             -webkit-background-clip: text;
@@ -172,7 +176,7 @@
             gap: 5px;
         }
 
-        /* POZA - FIXED */
+        /* POZA */
         .photo-wrapper {
             margin: 30px auto;
             width: 160px;
@@ -194,15 +198,9 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            /* Aici nu mai avem iconita, doar imaginea */
         }
         
-        .photo-inner img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* Aceasta linie face ca poza sa umple tot cercul corect */
-            display: block;
-        }
+        .photo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .bow-decoration {
             position: absolute;
@@ -309,9 +307,40 @@
             color: #888;
         }
 
+        /* --- RESPONSIVE / MOBIL --- */
         @media(max-width: 500px) {
+            /* Facem cardul mai îngust ca să se vadă fundalul pe margini */
+            .card-container {
+                width: 85%;
+                margin: 90px auto 40px auto; 
+                padding: 30px 15px;
+            }
+
+            /* Repoziționăm Hello Kitty SUS CENTRAT */
+            .kitty-img {
+                width: 80px;
+                top: -85px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                /* Anulăm rotația veche ca să stea drept sau definim una nouă */
+                animation: waveMobile 3s infinite ease-in-out;
+            }
+            
+            @keyframes waveMobile { 
+                0%, 100% { transform: translateX(-50%) rotate(0deg); } 
+                50% { transform: translateX(-50%) rotate(10deg); } 
+            }
+
+            /* Micșorăm puțin titlul pe mobil */
             h1 { font-size: 1.8rem; }
+            .title-wrapper { padding: 8px 15px; }
+            
+            /* Cronometre pe un singur rând */
             .timers-area { grid-template-columns: 1fr; }
+            
+            /* Micșorăm mesajele de pe fundal */
+            .float-msg { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -349,10 +378,7 @@
 
         <div class="photo-wrapper">
             <div class="bow-decoration">🎀</div>
-            
-            <!-- AICI AM MODIFICAT - DOAR POZA, FARA INIMA -->
             <div class="photo-inner">
-                <!-- STERGE linia de mai jos și pune link-ul tau in src="..." -->
                 <img src="poza.jpg" alt="Noi doi">
             </div>
         </div>
