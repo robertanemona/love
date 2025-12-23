@@ -89,7 +89,7 @@
             margin-bottom: 40px;
         }
 
-        /* IMAGINEA HELLO KITTY (Setări generale pt PC) */
+        /* IMAGINEA HELLO KITTY */
         .kitty-img {
             width: 110px;
             height: auto;
@@ -307,24 +307,21 @@
 
         /* --- RESPONSIVE / MOBIL --- */
         @media(max-width: 500px) {
-            /* Mărim spațiul de sus al paginii ca să încapă Kitty */
             .card-container {
                 width: 85%;
-                margin: 120px auto 40px auto; /* Margin top crescut */
+                margin: 120px auto 40px auto; 
                 padding: 30px 15px;
             }
 
-            /* Repoziționăm Hello Kitty SUS DE TOT, CENTRAT */
             .kitty-img {
                 width: 90px;
-                top: -110px; /* Ridicăm imaginea mult mai sus */
+                top: -110px; 
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
                 animation: waveMobile 3s infinite ease-in-out;
             }
             
-            /* Impingem titlul mai jos, ca să nu se atingă de Kitty */
             .title-wrapper {
                 margin-top: 20px;
             }
@@ -375,7 +372,7 @@
         <div class="photo-wrapper">
             <div class="bow-decoration">🎀</div>
             <div class="photo-inner">
-                <img src="poza.jpg" alt="Noi doi">
+                <img src="poza.jpg">
             </div>
         </div>
 
@@ -404,7 +401,8 @@
             </div>
             <div class="t-item">
                 <div class="t-icon">💍</div>
-                <div class="t-date">12 Martie 2025</div>
+                <!-- TEXT MODIFICAT: Adaugat ora 17:00 -->
+                <div class="t-date">12 Martie 2025, 17:00</div>
                 <div class="t-msg">
                     Ziua în care am decis să mergem pe același drum, mână de mână. 🧸💕
                 </div>
@@ -442,8 +440,9 @@
             </div>
         </div>
 
+        <!-- FOOTER MODIFICAT -->
         <div class="footer">
-            Made with <i class="fa-solid fa-heart" style="color:var(--hot-pink)"></i> by Robert
+            Te iubesc cel mai mult! <i class="fa-solid fa-heart" style="color:var(--hot-pink)"></i> Cu drag, Robert
         </div>
 
     </div>
