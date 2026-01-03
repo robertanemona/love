@@ -53,18 +53,45 @@
 
         /* --- STILURI GENERALE --- */
         .card-container {
-            max-width: 650px; margin: 20px auto; background: rgba(255, 255, 255, 0.95);
+            max-width: 650px; 
+            /* Margin top mare pe PC ca sa aiba loc Kitty */
+            margin: 100px auto 20px auto; 
+            background: rgba(255, 255, 255, 0.95);
             border: 4px solid var(--baby-pink); border-radius: 40px; padding: 40px 20px;
             text-align: center; position: relative; box-shadow: 10px 10px 0px rgba(255, 182, 193, 0.8);
-            overflow: hidden; 
+            overflow: visible; /* Lasam visible ca sa iasa Kitty afara */
         }
 
         /* Header */
-        .kitty-header { position: relative; margin-bottom: 40px; margin-top: 60px; }
-        .kitty-img { width: 110px; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); z-index: 2; animation: wave 3s infinite ease-in-out; }
-        @keyframes wave { 0%, 100% { transform: translateX(-50%) rotate(0deg); } 50% { transform: translateX(-50%) rotate(10deg); } }
+        .kitty-header { position: relative; margin-bottom: 40px; margin-top: 0px; }
+        
+        .kitty-img { 
+            width: 120px; 
+            position: absolute; 
+            /* O ridicam mult deasupra cardului */
+            top: -130px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            z-index: 2; 
+            animation: wave 3s infinite ease-in-out; 
+        }
+        @keyframes wave { 
+            0%, 100% { transform: translateX(-50%) rotate(0deg); } 
+            50% { transform: translateX(-50%) rotate(10deg); } 
+        }
 
-        .title-wrapper { background: #fff; display: inline-block; padding: 10px 20px; border-radius: 50px; border: 3px solid var(--hot-pink); transform: rotate(-2deg); margin-bottom: 15px; }
+        .title-wrapper { 
+            background: #fff; 
+            display: inline-block; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            border: 3px solid var(--hot-pink); 
+            transform: rotate(-2deg); 
+            margin-bottom: 15px; 
+            /* Spatiu fortat deasupra numelor ca sa nu se loveasca de Kitty */
+            margin-top: 20px;
+        }
+        
         h1 { font-family: 'Fredoka', sans-serif; font-size: 2.2rem; margin: 0; background: linear-gradient(45deg, #ff6b81, #ff9eb5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .heart-beat { display: inline-block; color: red; -webkit-text-fill-color: red; animation: beat 1s infinite; }
         @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
@@ -208,6 +235,32 @@
 
         .footer { margin-top: 40px; font-size: 0.9rem; color: #888; line-height: 1.6; }
 
+        /* --- RESPONSIVE FIX --- */
+        @media(max-width: 500px) {
+            /* Mărim margin-top ca să încapă Kitty pe ecran fără să iasă */
+            .card-container {
+                width: 85%;
+                margin: 130px auto 40px auto !important; 
+                padding: 30px 15px;
+            }
+
+            .kitty-img {
+                width: 100px;
+                top: -120px; /* Poziționat fix deasupra cardului */
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Forțăm spațiu între Kitty și Titlu */
+            .title-wrapper {
+                margin-top: 30px; 
+            }
+
+            h1 { font-size: 1.8rem; }
+            .timers-area { grid-template-columns: 1fr; }
+        }
+
     </style>
 </head>
 <body>
@@ -339,7 +392,6 @@
                 <div class="light l1"></div><div class="light l2"></div><div class="light l3"></div><div class="light l4"></div><div class="light l5"></div>
             </div>
 
-            <!-- Titlu Schimbat -->
             <h2 style="color:var(--deep-rose); font-family:'Pacifico'; margin-bottom:5px; position:relative; z-index:2; margin-top:20px;">Borcanul cu Mesaje 🍯</h2>
             <p style="font-size:0.9rem; color:#888; position:relative; z-index:2;">Trage un bilețel plin de iubire.</p>
             
@@ -411,7 +463,6 @@
                     <div class="t-date">24 Decembrie 2025</div>
                     <div class="t-msg">Primul Crăciun împreună. Magia sărbătorilor în doi.</div>
                 </div>
-                <!-- REVELION (Uniformizat stilul - mesaj simplu) -->
                 <div class="t-item">
                     <div class="t-icon">🎆</div>
                     <div class="t-date">31 Decembrie 2025</div>
@@ -477,106 +528,30 @@
         }
 
         const loveNotes = [
-            "Te iubesc pentru că ești tu.",
-            "Ești cel mai frumos vis al meu.",
-            "Îmi faci ziua mai bună doar cu un zâmbet.",
-            "Nu îmi imaginez viața fără tine.",
-            "Ești sufletul meu pereche.",
-            "Ador felul în care râzi.",
-            "Ești cea mai puternică persoană pe care o știu.",
-            "Mă inspiri să fiu mai bun.",
-            "Vreau să îmbătrânim împreună.",
-            "Ești acasă pentru mine.",
-            "Îmi place cum îmi spui pe nume.",
-            "Ești tot ce mi-am dorit vreodată.",
-            "Inima mea bate doar pentru tine.",
-            "Ești cea mai frumoasă din univers.",
-            "Mulțumesc că m-ai ales pe mine.",
-            "Ești sensul vieții mele.",
-            "Promit să te fac fericită în fiecare zi.",
-            "Abia aștept să ne trezim împreună.",
-            "Ești liniștea mea.",
-            "Te iubesc mai mult decât ieri.",
-            "Ești Hello Kitty-ul meu.",
-            "Vreau să călătorim în toată lumea.",
-            "Ești minunea mea.",
-            "Ador ochii tăi.",
-            "Ești perfectă așa cum ești.",
-            "Îmi e dor de tine în fiecare secundă.",
-            "Ești cel mai bun lucru din viața mea.",
-            "Vreau să fim o familie.",
-            "Ești raza mea de soare.",
-            "Îmi place să te țin de mână.",
-            "Ești totul meu.",
-            "Te iubesc la infinit.",
-            "Ești muza mea.",
-            "Vreau să construim totul împreună.",
-            "Ești cea mai dulce.",
-            "Mă faci să râd când sunt trist.",
-            "Ești stânca mea.",
-            "Te ador.",
-            "Ești viitoarea mea soție.",
-            "Îmi place să te privesc când dormi.",
-            "Ești magie pură.",
-            "Nu vreau să te pierd niciodată.",
-            "Ești cadoul meu de la Dumnezeu.",
-            "Îmi place totul la tine.",
-            "Ești cea mai importantă persoană.",
-            "Vreau să avem un mini us.",
-            "Ești motivul fericirii mele.",
-            "Te iubesc necondiționat.",
-            "Ești cea mai bună prietenă a mea.",
-            "Îmi place cum mă îmbrățișezi.",
-            "Ești universul meu.",
-            "Vreau să te fac să zâmbești mereu.",
-            "Ești cea mai prețioasă.",
-            "Îmi place vocea ta.",
-            "Ești destinul meu.",
-            "Te iubesc enorm.",
-            "Ești scânteia mea.",
-            "Vreau să fim fericiți.",
-            "Ești tot ce contează.",
-            "Îmi place cum mă iubești.",
-            "Ești o binecuvântare.",
-            "Te voi iubi mereu.",
-            "Ești inima mea.",
-            "Vreau să ne mutăm împreună.",
-            "Ești lumina ochilor mei.",
-            "Îmi place să petrec timp cu tine.",
-            "Ești cea mai scumpă.",
-            "Te iubesc din tot sufletul.",
-            "Ești aerul meu.",
-            "Vreau să avem o pisică.",
-            "Ești tot ce am nevoie.",
-            "Îmi place să visez cu tine.",
-            "Ești cea mai specială.",
-            "Te iubesc infinit.",
-            "Ești bucuria mea.",
-            "Vreau să avem casa noastră.",
-            "Ești totul pentru mine.",
-            "Îmi place să te sărut.",
-            "Ești steaua mea.",
-            "Te iubesc sincer.",
-            "Ești viața mea.",
-            "Vreau să fim împreună mereu.",
-            "Ești îngerul meu.",
-            "Îmi place să te alint.",
-            "Ești cea mai dragă.",
-            "Te iubesc pur.",
-            "Ești visul devenit realitate.",
-            "Vreau să te protejez.",
-            "Ești comoara mea.",
-            "Îmi place să te ascult.",
-            "Ești unică.",
-            "Te iubesc cu pasiune.",
-            "Ești tot ce vreau.",
-            "Vreau să te susțin.",
-            "Ești minunată.",
-            "Îmi place să te fac să râzi.",
-            "Ești iubirea mea.",
-            "Te iubesc veșnic.",
-            "Ești Anemona mea.",
-            "Te iubesc cel mai mult!"
+            "Te iubesc pentru că ești tu.", "Ești cel mai frumos vis al meu.", "Îmi faci ziua mai bună doar cu un zâmbet.",
+            "Nu îmi imaginez viața fără tine.", "Ești sufletul meu pereche.", "Ador felul în care râzi.",
+            "Ești cea mai puternică persoană pe care o știu.", "Mă inspiri să fiu mai bun.", "Vreau să îmbătrânim împreună.",
+            "Ești acasă pentru mine.", "Îmi place cum îmi spui pe nume.", "Ești tot ce mi-am dorit vreodată.",
+            "Inima mea bate doar pentru tine.", "Ești cea mai frumoasă din univers.", "Mulțumesc că m-ai ales pe mine.",
+            "Ești sensul vieții mele.", "Promit să te fac fericită în fiecare zi.", "Abia aștept să ne trezim împreună.",
+            "Ești liniștea mea.", "Te iubesc mai mult decât ieri.", "Ești Hello Kitty-ul meu.", "Vreau să călătorim în toată lumea.",
+            "Ești minunea mea.", "Ador ochii tăi.", "Ești perfectă așa cum ești.", "Îmi e dor de tine în fiecare secundă.",
+            "Ești cel mai bun lucru din viața mea.", "Vreau să fim o familie.", "Ești raza mea de soare.", "Îmi place să te țin de mână.",
+            "Ești totul meu.", "Te iubesc la infinit.", "Ești muza mea.", "Vreau să construim totul împreună.", "Ești cea mai dulce.",
+            "Mă faci să râd când sunt trist.", "Ești stânca mea.", "Te ador.", "Ești viitoarea mea soție.", "Îmi place să te privesc când dormi.",
+            "Ești magie pură.", "Nu vreau să te pierd niciodată.", "Ești cadoul meu de la Dumnezeu.", "Îmi place totul la tine.",
+            "Ești cea mai importantă persoană.", "Vreau să avem un mini us.", "Ești motivul fericirii mele.", "Te iubesc necondiționat.",
+            "Ești cea mai bună prietenă a mea.", "Îmi place cum mă îmbrățișezi.", "Ești universul meu.", "Vreau să te fac să zâmbești mereu.",
+            "Ești cea mai prețioasă.", "Îmi place vocea ta.", "Ești destinul meu.", "Te iubesc enorm.", "Ești scânteia mea.",
+            "Vreau să fim fericiți.", "Ești tot ce contează.", "Îmi place cum mă iubești.", "Ești o binecuvântare.", "Te voi iubi mereu.",
+            "Ești inima mea.", "Vreau să ne mutăm împreună.", "Ești lumina ochilor mei.", "Îmi place să petrec timp cu tine.",
+            "Ești cea mai scumpă.", "Te iubesc din tot sufletul.", "Ești aerul meu.", "Vreau să avem o pisică.", "Ești tot ce am nevoie.",
+            "Îmi place să visez cu tine.", "Ești cea mai specială.", "Te iubesc infinit.", "Ești bucuria mea.", "Vreau să avem casa noastră.",
+            "Ești totul pentru mine.", "Îmi place să te sărut.", "Ești steaua mea.", "Te iubesc sincer.", "Ești viața mea.",
+            "Vreau să fim împreună mereu.", "Ești îngerul meu.", "Îmi place să te alint.", "Ești cea mai dragă.", "Te iubesc pur.",
+            "Ești visul devenit realitate.", "Vreau să te protejez.", "Ești comoara mea.", "Îmi place să te ascult.", "Ești unică.",
+            "Te iubesc cu pasiune.", "Ești tot ce vreau.", "Vreau să te susțin.", "Ești minunată.", "Îmi place să te fac să râzi.",
+            "Ești iubirea mea.", "Te iubesc veșnic.", "Ești Anemona mea.", "Te iubesc cel mai mult!"
         ];
 
         function openJar() {
