@@ -53,18 +53,51 @@
 
         /* --- STILURI GENERALE --- */
         .card-container {
-            max-width: 650px; margin: 20px auto; background: rgba(255, 255, 255, 0.95);
+            max-width: 650px; 
+            /* MARGIN TOP MARE pe PC */
+            margin: 120px auto 40px auto; 
+            background: rgba(255, 255, 255, 0.95);
             border: 4px solid var(--baby-pink); border-radius: 40px; padding: 40px 20px;
             text-align: center; position: relative; box-shadow: 10px 10px 0px rgba(255, 182, 193, 0.8);
-            overflow: hidden; 
+            /* ESENTIAL: Allows Kitty to float outside the box */
+            overflow: visible; 
         }
 
         /* Header */
-        .kitty-header { position: relative; margin-bottom: 40px; margin-top: 60px; }
-        .kitty-img { width: 110px; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); z-index: 2; animation: wave 3s infinite ease-in-out; }
-        @keyframes wave { 0%, 100% { transform: translateX(-50%) rotate(0deg); } 50% { transform: translateX(-50%) rotate(10deg); } }
+        .kitty-header { 
+            position: relative; 
+            margin-bottom: 40px; 
+            /* Spatiu interior pentru titlu */
+            padding-top: 20px; 
+        }
 
-        .title-wrapper { background: #fff; display: inline-block; padding: 10px 20px; border-radius: 50px; border: 3px solid var(--hot-pink); transform: rotate(-2deg); margin-bottom: 15px; }
+        .kitty-img { 
+            width: 120px; 
+            position: absolute; 
+            /* Pozitionare deasupra cardului */
+            top: -140px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            z-index: 5; 
+            animation: wave 3s infinite ease-in-out; 
+        }
+        @keyframes wave { 
+            0%, 100% { transform: translateX(-50%) rotate(0deg); } 
+            50% { transform: translateX(-50%) rotate(10deg); } 
+        }
+
+        .title-wrapper { 
+            background: #fff; 
+            display: inline-block; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            border: 3px solid var(--hot-pink); 
+            transform: rotate(-2deg); 
+            margin-bottom: 15px;
+            /* Impingem titlul mai jos sa nu atinga poza */ 
+            margin-top: 10px; 
+        }
+        
         h1 { font-family: 'Fredoka', sans-serif; font-size: 2.2rem; margin: 0; background: linear-gradient(45deg, #ff6b81, #ff9eb5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .heart-beat { display: inline-block; color: red; -webkit-text-fill-color: red; animation: beat 1s infinite; }
         @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
@@ -208,22 +241,25 @@
 
         .footer { margin-top: 40px; font-size: 0.9rem; color: #888; line-height: 1.6; }
 
-        /* --- RESPONSIVE FIX --- */
+        /* --- RESPONSIVE FIX (SOLUTIA FINALA) --- */
         @media(max-width: 500px) {
             .card-container {
                 width: 85%;
-                margin: 130px auto 40px auto !important; 
+                /* COBORÂM CARDUL PENTRU A FACE LOC IMAGINII */
+                margin: 140px auto 40px auto !important; 
                 padding: 30px 15px;
             }
 
             .kitty-img {
                 width: 100px;
-                top: -120px; 
+                /* POZIȚIONĂM IMAGINEA ÎN SPAȚIUL GOL DE DEASUPRA CARDULUI */
+                top: -110px; 
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
             }
             
+            /* ADĂUGĂM MARGIN LA TITLU CA SĂ NU ATINGĂ MARGINEA DE SUS A CARDULUI */
             .title-wrapper {
                 margin-top: 30px; 
             }
@@ -231,9 +267,9 @@
             h1 { font-size: 1.8rem; }
             .timers-area { grid-template-columns: 1fr; }
             
-            /* --- FIX PENTRU FLIP CARDS (SUPRAPUNERE) --- */
+            /* REPARAM FLIP CARDURILE PE MOBIL */
             .love-grid {
-                grid-template-columns: 1fr; /* O singura coloana pe mobil */
+                grid-template-columns: 1fr; /* O singura coloana */
                 gap: 15px;
             }
         }
@@ -444,9 +480,7 @@
                 <div class="t-item">
                     <div class="t-icon">🎆</div>
                     <div class="t-date">31 Decembrie 2025</div>
-                    <div class="t-msg">
-                        Ne-am împăcat și am petrecut Revelionul împreună! ❤️
-                    </div>
+                    <div class="t-msg">Ne-am împăcat și am petrecut Revelionul împreună! ❤️</div>
                 </div>
                 <div class="t-item">
                     <div class="t-icon">🤒</div>
